@@ -3,7 +3,7 @@ package br.com.ifpe.oxefood.util.entity;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,12 +19,11 @@ import lombok.Setter;
 public abstract class EntidadeNegocio implements Serializable {
 
     @Id
-   @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-   @JsonIgnore
-   @Column
+    @JsonIgnore
+    @Column
     private Boolean habilitado;
-    
-}
 
+}

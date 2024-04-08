@@ -9,17 +9,6 @@ import jakarta.transaction.Transactional;
 @Service
 public class ClienteService {
 
-    public List<Cliente> listarTodos() {
-  
-        return repository.findAll();
-    }
-
-    public Cliente obterPorID(Long id) {
-
-        return repository.findById(id).get();
-    }
-
-
     @Autowired
    private ClienteRepository repository;
 
@@ -32,7 +21,7 @@ public class ClienteService {
        return repository.save(cliente);
    }
 
-   @Transactional
+  /*  @Transactional
    public void delete(Long id) {
 
        Cliente cliente = repository.findById(id).get();
@@ -41,6 +30,8 @@ public class ClienteService {
 
        repository.save(cliente);
    }
+
+   */
 
 
     

@@ -14,8 +14,8 @@ import jakarta.persistence.Version;
 import lombok.Getter;
 import lombok.Setter;
 
-/* 
-@SuppressWarnings("serial")*/
+ 
+@SuppressWarnings("serial")
 @Getter
 @Setter
 @MappedSuperclass

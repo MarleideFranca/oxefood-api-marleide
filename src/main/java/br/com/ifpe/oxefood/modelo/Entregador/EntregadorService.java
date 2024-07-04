@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 
 @Service
-public class EntregadorService {
+public class entregadorService {
     @Autowired
-    private EntregadorRepository repository;
+    private entregadorRepository repository;
 
     @Transactional
-    public Entregador save(Entregador entregador) {
+    public entregador save(entregador entregador) {
 
         entregador.setHabilitado(Boolean.TRUE);
         entregador.setVersao(1L);
@@ -22,19 +22,19 @@ public class EntregadorService {
         return repository.save(entregador);
     }
 
-    public List<Entregador> listarTodos() {
+    public List<entregador> listarTodos() {
         return repository.findAll();
     }
 
-    public Entregador obterPorID(Long id) {
+    public entregador obterPorID(Long id) {
 
         return repository.findById(id).get();
     }
 
     @Transactional
-    public void update(Long id, Entregador entregadorAlterado) {
+    public void update(Long id, entregador entregadorAlterado) {
 
-        Entregador entregador = repository.findById(id).get();
+        entregador entregador = repository.findById(id).get();
         entregador.setNome(entregadorAlterado.getNome());
         entregador.setCpf(entregadorAlterado.getCpf());
         entregador.setRg(entregadorAlterado.getRg());

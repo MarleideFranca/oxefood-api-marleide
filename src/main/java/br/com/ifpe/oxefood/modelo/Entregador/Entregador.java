@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Entregador extends EntidadeAuditavel {
+public class entregador extends EntidadeAuditavel {
     
     
     @Column

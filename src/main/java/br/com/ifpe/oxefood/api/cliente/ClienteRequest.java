@@ -19,6 +19,7 @@ import lombok.NoArgsConstructor;
 public class ClienteRequest {
 
    private String nome;
+   
    @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate dataNascimento;
 

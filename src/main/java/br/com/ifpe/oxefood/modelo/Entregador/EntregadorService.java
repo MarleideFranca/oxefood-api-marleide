@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.ifpe.oxefood.modelo.cliente.Cliente;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -54,5 +55,16 @@ public class entregadorService {
         entregador.setVersao(entregador.getVersao() + 1);
         repository.save(entregador);
     }
+
+
+    @Transactional
+   public void delete(Long id) {
+
+       entregador entregador = repository.findById(id).get();//Não marcou entregador como classe- Dúvida
+       entregador.setHabilitado(Boolean.FALSE);
+       entregador.setVersao(entregador.getVersao() + 1);
+
+       repository.save(entregador);
+   }
 
 }

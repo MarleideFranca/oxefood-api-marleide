@@ -34,6 +34,8 @@ public class entregadorRequest {
 
    private String enderecoRua;
 
+   private String enderecoNumero;
+
    private String enderecoBairro;
 
    private String enderecoCidade;

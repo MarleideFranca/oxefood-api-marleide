@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ifpe.oxefood.api.cliente.ClienteRequest;
 import br.com.ifpe.oxefood.modelo.cliente.Cliente;
-import br.com.ifpe.oxefood.modelo.entregador.entregador;
-import br.com.ifpe.oxefood.modelo.entregador.entregadorService;
+import br.com.ifpe.oxefood.modelo.entregador.Entregador;
+import br.com.ifpe.oxefood.modelo.entregador.EntregadorService;
 
 import java.util.List;
 
@@ -25,10 +25,10 @@ import io.swagger.v3.oas.annotations.Operation;
 @RestController
 @RequestMapping("/api/entregador")
 @CrossOrigin
-public class entregadorController {
+public class EntregadorController {
 
     @Autowired
-    private entregadorService entregadorService;
+    private EntregadorService entregadorService;
 
     @Operation(
         summary = "Serviço responsável por incluir um entregador no sistema.",
@@ -36,10 +36,10 @@ public class entregadorController {
     )
 
     @PostMapping
-    public ResponseEntity<entregador> save(@RequestBody entregadorRequest request) {
+    public ResponseEntity<Entregador> save(@RequestBody EntregadorRequest request) {
 
-        entregador entregador = entregadorService.save(request.build());
-        return new ResponseEntity<entregador>(entregador, HttpStatus.CREATED);
+        Entregador entregador = entregadorService.save(request.build());
+        return new ResponseEntity<Entregador>(entregador, HttpStatus.CREATED);
     }
 
     @Operation(
@@ -48,12 +48,12 @@ public class entregadorController {
     )
 
     @GetMapping
-    public List<entregador> listarTodos() {
+    public List<Entregador> listarTodos() {
         return entregadorService.listarTodos();
     }
 
     @GetMapping("/{id}")
-    public entregador obterPorID(@PathVariable Long id) {
+    public Entregador obterPorID(@PathVariable Long id) {
         return entregadorService.obterPorID(id);
     }
 
@@ -63,7 +63,7 @@ public class entregadorController {
     )
 
     @PutMapping("/{id}")
-    public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody entregadorRequest request) {
+    public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody EntregadorRequest request) {
 
         entregadorService.update(id, request.build());
         return ResponseEntity.ok().build();

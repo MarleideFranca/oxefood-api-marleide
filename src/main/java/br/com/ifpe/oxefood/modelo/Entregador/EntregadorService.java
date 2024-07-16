@@ -10,12 +10,12 @@ import br.com.ifpe.oxefood.modelo.cliente.Cliente;
 import jakarta.transaction.Transactional;
 
 @Service
-public class entregadorService {
+public class EntregadorService {
     @Autowired
-    private entregadorRepository repository;
+    private EntregadorRepository repository;
 
     @Transactional
-    public entregador save(entregador entregador) {
+    public Entregador save(Entregador entregador) {
 
         entregador.setHabilitado(Boolean.TRUE);
         entregador.setVersao(1L);
@@ -23,19 +23,19 @@ public class entregadorService {
         return repository.save(entregador);
     }
 
-    public List<entregador> listarTodos() {
+    public List<Entregador> listarTodos() {
         return repository.findAll();
     }
 
-    public entregador obterPorID(Long id) {
+    public Entregador obterPorID(Long id) {
 
         return repository.findById(id).get();
     }
 
     @Transactional
-    public void update(Long id, entregador entregadorAlterado) {
+    public void update(Long id, Entregador entregadorAlterado) {
 
-        entregador entregador = repository.findById(id).get();
+        Entregador entregador = repository.findById(id).get();
         entregador.setNome(entregadorAlterado.getNome());
         entregador.setCpf(entregadorAlterado.getCpf());
         entregador.setRg(entregadorAlterado.getRg());
@@ -60,7 +60,7 @@ public class entregadorService {
     @Transactional
    public void delete(Long id) {
 
-       entregador entregador = repository.findById(id).get();//Não marcou entregador como classe- Dúvida
+       Entregador entregador = repository.findById(id).get();//Não marcou entregador como classe- Dúvida
        entregador.setHabilitado(Boolean.FALSE);
        entregador.setVersao(entregador.getVersao() + 1);
 

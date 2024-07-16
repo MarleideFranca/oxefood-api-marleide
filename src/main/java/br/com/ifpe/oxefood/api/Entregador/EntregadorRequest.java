@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import br.com.ifpe.oxefood.modelo.entregador.entregador;
+import br.com.ifpe.oxefood.modelo.entregador.Entregador;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class entregadorRequest {
+public class EntregadorRequest {
 
    private String nome;
    @JsonFormat(pattern = "dd/MM/yyyy")
@@ -48,9 +48,9 @@ public class entregadorRequest {
 
    private Boolean ativo;
 
-   public entregador build() {
+   public Entregador build() {
 
-       return entregador.builder()
+       return Entregador.builder()
            .nome(nome)
            .dataNascimento(dataNascimento)
            .cpf(cpf)

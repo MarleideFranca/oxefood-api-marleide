@@ -1,6 +1,20 @@
 package br.com.ifpe.oxefood.api.cliente;
 
 import br.com.ifpe.oxefood.modelo.cliente.EnderecoCliente;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class EnderecoClienteRequest {
 

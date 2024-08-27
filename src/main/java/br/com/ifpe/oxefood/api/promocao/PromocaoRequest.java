@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.ifpe.oxefood.modelo.promocao.Promocao;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PromocaoRequest {
 
+    @NotBlank(message = "O título é de preenchimento obrigatório")
     private String titulo;
 
     @JsonFormat(pattern = "dd/MM/yyyy")

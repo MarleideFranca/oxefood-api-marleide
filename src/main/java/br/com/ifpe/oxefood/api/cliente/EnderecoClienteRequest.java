@@ -1,9 +1,10 @@
 package br.com.ifpe.oxefood.api.cliente;
 
 import br.com.ifpe.oxefood.modelo.cliente.EnderecoCliente;
-import java.time.LocalDate;
+//import java.time.LocalDate;
+import jakarta.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+//import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 
 public class EnderecoClienteRequest {
 
+   @NotBlank(message = "A rua é de preenchimento obrigatório")
     private String rua;
 
    private String numero;

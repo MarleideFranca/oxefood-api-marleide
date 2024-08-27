@@ -19,6 +19,7 @@ import br.com.ifpe.oxefood.modelo.produto.CategoriaProduto;
 import br.com.ifpe.oxefood.modelo.produto.CategoriaProdutoService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -35,7 +36,7 @@ public class CategoriaProdutoController {
     )
 
     @PostMapping
-    public ResponseEntity<CategoriaProduto> save(@RequestBody CategoriaProdutoRequest request) {
+    public ResponseEntity<CategoriaProduto> save(@RequestBody @Valid CategoriaProdutoRequest request) {
 
         CategoriaProduto categoriaProduto = categoriaProdutoService.save(request.build());
         return new ResponseEntity<CategoriaProduto>(categoriaProduto, HttpStatus.CREATED);
@@ -62,7 +63,7 @@ public class CategoriaProdutoController {
     )
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoriaProduto> update(@PathVariable("id") Long id, @RequestBody CategoriaProdutoRequest request) {
+    public ResponseEntity<CategoriaProduto> update(@PathVariable("id") Long id, @RequestBody @Valid CategoriaProdutoRequest request) {
 
         categoriaProdutoService.update(id, request.build());
         return ResponseEntity.ok().build();

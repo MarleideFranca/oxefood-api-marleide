@@ -23,6 +23,7 @@ import br.com.ifpe.oxefood.modelo.promocao.Promocao;
 import br.com.ifpe.oxefood.modelo.promocao.PromocaoService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -44,7 +45,7 @@ public class PromocaoController {
     )
 
     @PostMapping
-    public ResponseEntity<Promocao> save(@RequestBody PromocaoRequest request) {
+    public ResponseEntity<Promocao> save(@RequestBody @Valid PromocaoRequest request) {
 
         Promocao promocao = promocaoService.save(request.build());
         return new ResponseEntity<Promocao>(promocao, HttpStatus.CREATED);
@@ -74,7 +75,7 @@ public class PromocaoController {
     )
 
     @PutMapping("/{id}")
-    public ResponseEntity<Promocao> update(@PathVariable("id") Long id, @RequestBody PromocaoRequest request) {
+    public ResponseEntity<Promocao> update(@PathVariable("id") Long id, @RequestBody @Valid PromocaoRequest request) {
 
         promocaoService.update(id, request.build());
         return ResponseEntity.ok().build();

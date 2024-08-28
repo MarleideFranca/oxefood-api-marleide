@@ -26,9 +26,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @AllArgsConstructor
 @NoArgsConstructor
 
+//Exemplo de relacionamento Bidirecional 1-N
 public class EnderecoCliente extends EntidadeAuditavel {
 
-   @JsonIgnore
+   @JsonIgnore //Permite que quando carregue o endereço do cliente não carregue os dados de cliente.
    @ManyToOne
    private Cliente cliente;
 

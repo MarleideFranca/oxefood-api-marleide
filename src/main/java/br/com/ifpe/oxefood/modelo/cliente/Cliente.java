@@ -32,14 +32,14 @@ public class Cliente extends EntidadeAuditavel  {
     @OneToMany(mappedBy = "cliente", orphanRemoval = true, fetch = FetchType.EAGER)
    private List<EnderecoCliente> enderecos;
 
-  
-    @Column
+  //validações de banco de dados são colocadas nas entidades de estruturas e dentro do @Column
+    @Column (nullable = false, length = 100)//O campo nome não poderá ser nulo e não pode pode ter mais que 100 caracteres ao ser salvo no banco de dados.
     private String nome;
  
     @Column
     private LocalDate dataNascimento;
  
-    @Column
+    @Column (unique = true)//O campo cpf é único no banco de dados, ou seja, não poderá ser salvo um cliente com um CPF que já exista em algum outro cliente no banco de dados.
     private String cpf;
  
     @Column
